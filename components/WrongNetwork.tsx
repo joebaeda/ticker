@@ -29,7 +29,7 @@ const WrongNetwork: React.FC = () => {
                 <div className="mb-6">
                     <h2 className="text-5xl font-extrabold text-slate-950 tracking-wide">ticker is on sepolia network</h2>
                     <p className="mt-2 text-gray-600">
-                        it seems you're connected to the wrong network. please switch to the sepolia network to continue.
+                        it seems you&#39;re connected to the wrong network. please switch to the sepolia network to continue.
                     </p>
                 </div>
                 <div className="flex justify-center">

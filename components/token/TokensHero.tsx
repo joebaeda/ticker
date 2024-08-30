@@ -28,7 +28,7 @@ const TokensHero = ({ onSearch, totalTokenCreated, tokenHaveLiquidity, tokenFoun
         <div className="min-h-40 max-w-full flex flex-col gap-4 text-gray-100 md:flex-row items-center p-6">
             <div className="max-w-lg text-left">
                 <p className="text-lg py-auto">
-                    With built-in AMM magic, seamless ETH swaps, and ironclad security, it's like having a financial wizard in your pocket. Get ready to trade smarter, safer, and with a splash of fun. Your crypto journey starts here!
+                    With built-in AMM magic&#44; seamless ETH swaps&#44; and ironclad security&#44; it&#39;s like having a financial wizard in your pocket&#46; Get ready to trade smarter&#44; safer&#44; and with a splash of fun&#46; Your crypto journey starts here&#33;
                 </p>
             </div>
             <div className="w-full text-gray-500">
@@ -62,8 +62,8 @@ const TokensHero = ({ onSearch, totalTokenCreated, tokenHaveLiquidity, tokenFoun
                     </button>
                 </form>
                 <div className="mt-2 flex flex-row gap-3 justify-between items-center">
-                    <p>Token Created: {totalTokenCreated}</p>
-                    <p>Tradeable: {tokenHaveLiquidity}</p>
+                    <p>Token Created&#58; {totalTokenCreated}</p>
+                    <p>Tradeable&#58; {tokenHaveLiquidity}</p>
                 </div>
             </div>
         </div>

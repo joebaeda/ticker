@@ -10,6 +10,7 @@ import {
     totalTokenSupply
 } from '@/lib/token';
 import { ethers } from 'ethers';
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 async function fetchAirdropPosts(tag: string) {
@@ -190,34 +191,34 @@ const TokenAbout: React.FC<TokenAboutProps> = ({ contractAddress }) => {
                     <div className="flex-1">
                         <h2 className="text-xl text-lime-600 font-bold my-4">Discover the {tokenName} &#40;{tokenSymbol}&#41;</h2>
                         <p className="mb-4">
-                            In the vast universe of decentralized finance, a star shines brightly—{tokenName}. Born from the Ethereum blockchain, this ERC-20 token has not only captivated investors but also carved a niche in the ever-evolving landscape of Automated Market Makers &#40;AMMs&#41;.
+                            In the vast universe of decentralized finance&#44; a star shines brightly—{tokenName}&#46; Born from the Ethereum blockchain&#44; this ERC-20 token has not only captivated investors but also carved a niche in the ever-evolving landscape of Automated Market Makers &#40;AMMs&#41;.
                         </p>
 
                         <h3 className="text-lg text-lime-600 font-semibold mb-3">The Journey of {tokenName} &#40;{tokenSymbol}&#41;</h3>
                         <p className="mb-4">
-                            {tokenName} isn't just another digital asset, it's a beacon of innovation. With its built-in AMM, {tokenName} seamlessly facilitates the determination of prices between itself and ETH, ensuring fair and transparent trading for all participants.
+                            {tokenName} isn&#39;t just another digital asset&#44; it&#39;s a beacon of innovation&#44; With its built-in AMM&#44; {tokenName} seamlessly facilitates the determination of prices between itself and ETH&#44; ensuring fair and transparent trading for all participants&#46;
                         </p>
-                        <p className="mb-4">As of now, each {tokenName} is valued at {currentPrice} ETH. This price, ever-fluid, reflects the dynamic nature of the market, influenced by the forces of supply, demand, and trading volume.</p>
+                        <p className="mb-4">As of now&#44; each {tokenName} is valued at {currentPrice} ETH&#46; This price&#44; ever-fluid&#44; reflects the dynamic nature of the market&#44; influenced by the forces of supply&#44; demand&#44; and trading volume&#46;</p>
 
-                        <p className="mb-4">The Marketcap or total value of all {tokenName} combined has reached a staggering {marketCap} ETH. This figure isn't just a number, it represents the collective trust and belief that investors have placed in {tokenName}.</p>
+                        <p className="mb-4">The Marketcap or total value of all {tokenName} combined has reached a staggering {marketCap} ETH&#46; This figure isn&#39;t just a number&#44; it represents the collective trust and belief that investors have placed in {tokenName}&#46;</p>
 
-                        <p className="mb-4">Over the last 24 hours, {volume} ETH worth of {tokenName} has exchanged hands. This volume showcases the token's liquidity and the vibrancy of its trading community.</p>
+                        <p className="mb-4">Over the last 24 hours&#44; {volume} ETH worth of {tokenName} has exchanged hands&#46; This volume showcases the token&#39;s liquidity and the vibrancy of its trading community&#46;</p>
 
                         <h3 className="text-lg text-lime-600 font-semibold mb-3">A Glimpse at the Supply</h3>
                         <p className="mb-4">
-                            {tokenName}'s total supply is a key pillar of its value proposition. With a finite number of tokens available, scarcity plays a significant role in driving its price.
+                            {tokenName}&#39;s total supply is a key pillar of its value proposition&#46; With a finite number of tokens available&#44; scarcity plays a significant role in driving its price&#46;
                         </p>
-                        <p className="mb-4">There are {totalSupply} {tokenSymbol} tokens in existence. Each token represents a fraction of the {tokenName} ecosystem, contributing to its market presence.</p>
+                        <p className="mb-4">There are {totalSupply} {tokenSymbol} tokens in existence&#46; Each token represents a fraction of the {tokenName} ecosystem&#44; contributing to its market presence&#46;</p>
 
                         <h3 className="text-lg text-lime-600 font-semibold mb-3">The Community Behind {tokenName} &#40;{tokenSymbol}&#41;</h3>
-                        <p className="mb-4">Over {holders} unique addresses hold {tokenName} &#40;{tokenSymbol}&#41;, each contributing to the token's decentralized ownership. This diverse community is the lifeblood of {tokenName}, driving its adoption and use across various platforms.</p>
+                        <p className="mb-4">Over {holders} unique addresses hold {tokenName} &#40;{tokenSymbol}&#41;&#44; each contributing to the token&#39;s decentralized ownership&#46; This diverse community is the lifeblood of {tokenName}&#44; driving its adoption and use across various platforms&#46;</p>
 
                         <h3 className="text-lg text-lime-600 font-semibold mb-3">The Lifeblood: Reserves</h3>
-                        <p className="mb-4">The contract holds {ethReserve} ETH in reserve, a safety net ensuring liquidity and trust in the system. Alongside ETH, the contract also holds {tokenReserve} {tokenSymbol} in reserve, bolstering the token's ability to meet market demands.</p>
+                        <p className="mb-4">The contract holds {ethReserve} ETH in reserve&#44; a safety net ensuring liquidity and trust in the system&#46; Alongside ETH&#44; the contract also holds {tokenReserve} {tokenSymbol} in reserve&#44; bolstering the token&#39;s ability to meet market demands&#46;</p>
 
                         <h3 className="text-lg text-lime-600 font-semibold mb-3">Conclusion</h3>
                         <p className="mb-4">
-                            {tokenName} is more than just a digital asset, it's a story of innovation, community, and trust. As it continues to evolve, {tokenName} promises to remain a cornerstone of the decentralized finance ecosystem, guiding its holders on a journey of growth and discovery.
+                            {tokenName} is more than just a digital asset&#44; it&#39;s a story of innovation&#44; community&#44; and trust&#46; As it continues to evolve&#44; {tokenName} promises to remain a cornerstone of the decentralized finance ecosystem&#44; guiding its holders on a journey of growth and discovery&#46;
                         </p>
                     </div>
 
@@ -240,7 +241,7 @@ const TokenAbout: React.FC<TokenAboutProps> = ({ contractAddress }) => {
                         <div className="space-y-4">
                             {airdropPosts.slice(0, 4).map((post: any) => (
                                 <a href={`/blog/${post.id}`} key={post.id} className="block bg-gray-100 hover:bg-gray-200 transition-colors rounded-lg overflow-hidden shadow-lg">
-                                    <img src={post.image} alt={post.title} className="w-full h-40 object-cover" />
+                                    <Image src={post.image} alt={post.title} width={300} height={150} className="w-full h-40 object-cover" />
                                     <div className="p-4 text-gray-900">
                                         <p className="text-xs lg:text-md">{post.date} | {post.author}</p>
                                         <h4 className="text-md font-semibold">{post.title}</h4>

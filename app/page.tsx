@@ -110,7 +110,7 @@ export default function Home() {
         <div className="relative lg:py-8 px-6 w-full flex flex-col gap-4 text-gray-100 md:flex-row">
           <div className="md:max-w-sm md:pt-6 max-w-md text-lg text-gray-300">
             <p>
-              Where we mint tokens with a sprinkle of magic, swap ETH like we're flipping pancakes, and keep your funds safer than a squirrel in a bank vault.
+              Where we mint tokens with a sprinkle of magic&#44; swap ETH like we&#39;re flipping pancakes&#44; and keep your funds safer than a squirrel in a bank vault&#46;
             </p>
             <div className="flex gap-3 pt-8">
               <a href="https://github.com/joebaeda" target="_blank">

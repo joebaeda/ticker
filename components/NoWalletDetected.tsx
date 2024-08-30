@@ -14,7 +14,7 @@ const NoWalletDetected: React.FC = () => {
                     <h1 className="text-5xl font-extrabold text-slate-950 mb-4">ticker is fully onchain</h1>
                     <h2 className="text-3xl font-extrabold text-red-600 tracking-wide">no wallet installed</h2>
                     <p className="mt-2 text-gray-600">
-                        It seems you don't have a crypto wallet installed. To continue, please download and install a wallet like MetaMask.
+                        It seems you don&#39;t have a crypto wallet installed. To continue, please download and install a wallet like MetaMask.
                     </p>
                 </div>
                 <div className="flex flex-col-2 gap-2 text-center">

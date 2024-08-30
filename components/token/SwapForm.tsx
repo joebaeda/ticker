@@ -87,7 +87,7 @@ const SwapForm: React.FC<SwapProps> = ({ tokenAddress, signer, addressConnected,
         };
 
         fetchTokenData();
-    }, [tokenAddress]);
+    }, [tokenAddress, addressConnected]);
 
     useEffect(() => {
         const estimateAmountOut = async () => {
@@ -203,9 +203,9 @@ const SwapForm: React.FC<SwapProps> = ({ tokenAddress, signer, addressConnected,
             {/* Token Info */}
             <div className="px-2 text-lg text-gray-200 pt-8 lg:m-0">
                 {showAddLiquidity ? (
-                    <p> The ticker is <span className="text-2xl font-bold">${tokenSymbol}</span> but unfortunately <span className="text-2xl font-bold">${tokenSymbol}</span> token cannot be traded yet because there is not enough liquidity!</p>
+                    <p> The ticker is <span className="text-2xl font-bold">${tokenSymbol}</span> but unfortunately <span className="text-2xl font-bold">${tokenSymbol}</span> token cannot be traded yet because there is not enough liquidity&#33;</p>
                 ) : (
-                    <p> Swap with confidence, enjoy unbeatable security, and join the exclusive <span className="text-2xl font-bold text-lime-600">${tokenSymbol}</span> club, where every trade is a move in the ultimate token dance-off!</p>
+                    <p> Swap with confidence&#44; enjoy unbeatable security&#44; and join the exclusive <span className="text-2xl font-bold text-lime-600">${tokenSymbol}</span> club&#44; where every trade is a move in the ultimate token dance-off&#33;</p>
                 )}
                 <div className="flex flex-row gap-3 py-8 items-center">
                     <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
