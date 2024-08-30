@@ -5,7 +5,7 @@ export async function generateMetadata({ params }: { params: { postId: string } 
 
     try {
         // Fetch data from your API
-        const response = await fetch(`http://localhost:3000/api/blog/${postId}`);
+        const response = await fetch(`/api/blog/${postId}`);
         if (!response.ok) {
             throw new Error('Failed to fetch post data');
         }
