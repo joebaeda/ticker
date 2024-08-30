@@ -8,7 +8,7 @@ import { useWallet } from "@/context/WalletContextProvider";
 import { useEffect, useState } from "react";
 
 async function fetchAllPosts() {
-    const res = await fetch('/api/blog');
+    const res = await fetch('https://www.ticker.id/api/blog');
     if (!res.ok) {
         throw new Error('Failed to fetch posts');
     }

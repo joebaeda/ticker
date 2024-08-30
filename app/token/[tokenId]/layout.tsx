@@ -5,7 +5,7 @@ export async function generateMetadata({ params }: { params: { tokenId: string }
 
     try {
         // Fetch data from your API
-        const response = await fetch(`/api/token/${tokenId}`);
+        const response = await fetch(`https://www.ticker.id/api/token/${tokenId}`);
         if (!response.ok) {
             throw new Error('Failed to fetch token data');
         }
