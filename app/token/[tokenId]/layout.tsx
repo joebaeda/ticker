@@ -5,15 +5,20 @@ export async function generateMetadata({ params }: { params: { tokenId: string }
 
     try {
         // Fetch data from your API
-        const response = await fetch(`https://www.ticker.id/api/token/${tokenId}`);
+        const response = await fetch(`https://ticker.id/api/token/${tokenId}`, {
+            next: {
+                revalidate: 30000,  // every 30 second get new data
+            },
+        });
         if (!response.ok) {
             throw new Error('Failed to fetch token data');
         }
         const data = await response.json();
+        console.log(data);
 
         const title = `The ticker is $${data.tSymbol} | ${data.tPrice} ETH`;
         const description = `The Marketcap or total value of all ${data.tName} combined has reached a staggering ${data.marketCap} ETH.`;
-        const imageUrl = `https://www.ticker.id/api/og/${tokenId}`;
+        const imageUrl = `https://ticker.id/api/og/${tokenId}`;
 
         return {
             title,
@@ -27,7 +32,7 @@ export async function generateMetadata({ params }: { params: { tokenId: string }
                         url: imageUrl,
                         width: 1200,
                         height: 600,
-                        alt: `${data.tSymbol} logo`,
+                        alt: `${data?.tSymbol} logo`,
                     },
                 ],
                 siteName: 'ticker',

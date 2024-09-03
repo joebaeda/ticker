@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import BuyMeCoffee from '@/components/BuyMeCoffee';
 
 async function fetchPostData(postId: string) {
-    const res = await fetch(`https://www.ticker.id/api/blog/${postId}`);
+    const res = await fetch(`/api/blog/${postId}`);
     if (!res.ok) {
         throw new Error('Failed to fetch post data');
     }
@@ -15,7 +15,7 @@ async function fetchPostData(postId: string) {
 }
 
 async function fetchRelatedPosts(tags: string[]) {
-    const res = await fetch('https://www.ticker.id/api/blog/related', {
+    const res = await fetch('/api/blog/related', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ tags }),
@@ -27,7 +27,7 @@ async function fetchRelatedPosts(tags: string[]) {
 }
 
 async function fetchAirdropPosts(tag: string) {
-    const res = await fetch('https://www.ticker.id/api/blog/related', {
+    const res = await fetch('/api/blog/related', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ tags: [tag] }),
