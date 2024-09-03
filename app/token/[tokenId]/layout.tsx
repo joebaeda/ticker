@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: { params: { tokenId: string }
         }
         const data = await response.json();
 
-        const title = `The ticker is $${data.symbol} | ${data.price} ETH`;
-        const description = `Discover ${data.tokenName} (${data.symbol}), a unique cryptocurrency. Stay updated with the current price and explore the recent transactions on the blockchain. Invest wisely and stay ahead with ${data.tokenName}.`;
+        const title = `The ticker is $${data.tSymbol} | ${data.tPrice} ETH`;
+        const description = `The Marketcap or total value of all ${data.tName} combined has reached a staggering ${data.marketCap} ETH.`;
         const imageUrl = `https://www.ticker.id/api/og/${tokenId}`;
 
         return {
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: { tokenId: string }
                         url: imageUrl,
                         width: 1200,
                         height: 600,
-                        alt: `${data.symbol} logo`,
+                        alt: `${data.tSymbol} logo`,
                     },
                 ],
                 siteName: 'ticker',

@@ -2,22 +2,46 @@ import { NextResponse } from "next/server";
 import { TickerToken } from "@/contracts/TickerToken";
 import { ethers } from 'ethers';
 
+export const runtime = "edge";
+
+const provider = new ethers.JsonRpcProvider("https://rpc.sepolia.org");
+
+// Function to fetch token data
+async function getTokenData(tokenId: string) {
+    try {
+        const contract = new ethers.Contract(tokenId, TickerToken, provider);
+
+        // Assuming your contract has these functions to fetch data
+        const [tSymbol, tName, tPrice, tSupply] = await Promise.all([
+            contract.symbol(), // get the token symbol
+            contract.name(), // get the token name
+            contract.getTokenPrice(), // get the token price
+            contract.totalSupply(),
+        ]);
+
+        return {
+            tSymbol,
+            tName,
+            tPrice: parseFloat(ethers.formatEther(tPrice)).toFixed(6), // Convert price to ETH
+            marketCap: parseFloat(String(Number(ethers.formatEther(tPrice)) * Number(ethers.formatEther(tSupply)))).toFixed(3), // calculate marketcap
+        };
+    } catch (error) {
+        console.error("Error fetching token data:", error);
+        throw new Error("Failed to fetch token data");
+    }
+}
+
 export async function GET(request: Request, { params }: { params: { tokenId: string } }) {
     const contractAddress = params.tokenId;
 
     try {
-        const provider = new ethers.JsonRpcProvider("https://rpc.sepolia.org");
-        const contract = new ethers.Contract(contractAddress, TickerToken, provider)
-
-        const tokenName = await contract.name();
-        const symbol = await contract.symbol();
-        const priceInWei = await contract.getTokenPrice();
-        const price = ethers.formatEther(priceInWei);
+        const { tSymbol, tName, tPrice, marketCap } = await getTokenData(contractAddress);
 
         return NextResponse.json({
-            tokenName,
-            symbol,
-            price,
+            tSymbol,
+            tName,
+            tPrice,
+            marketCap,
         });
     } catch (error) {
 
