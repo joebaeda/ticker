@@ -72,11 +72,11 @@ export default function Faq() {
                 {/* Full Width Button */}
                 <div className="flex flex-row gap-3 mt-8">
                     <a
-                        href="/blog"
+                        href="/whitepaper"
                         target="_blank"
                         className="inline-block w-full px-6 py-3 text-center text-white bg-slate-950 rounded-lg hover:bg-slate-800 transition"
                     >
-                        Learn More
+                        Whitepaper
                     </a>
                     <a
                         href="/token"
