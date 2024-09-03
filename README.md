@@ -55,8 +55,8 @@ The smart contract is written in Solidity and leverages the OpenZeppelin library
 Clone the repository and install the required dependencies.
 
 ```bash
-git clone https://github.com/your-repository.git
-cd your-repository
+git clone https://github.com/ticker.git
+cd ticker
 npm install
 ```
 
@@ -99,7 +99,7 @@ This project was made possible thanks to the following technologies and platform
 - [**Next.js**](https://nextjs.org/): A React framework that enables fast and scalable web applications.
 - [**Vercel**](https://vercel.com/): A platform for deploying and hosting web applications with ease.
 - [**Metamask**](https://metamask.io/): A popular Ethereum wallet and browser extension.
-- [**Ether.js**](https://docs.ethers.io/v5/): A JavaScript library for interacting with the Ethereum blockchain.
+- [**Ether.js**](https://docs.ethers.org/v6/): A JavaScript library for interacting with the Ethereum blockchain.
 - [**Tailwind CSS**](https://tailwindcss.com/): A utility-first CSS framework for rapidly building custom designs.
 - [**TypeScript**](https://www.typescriptlang.org/): A strongly typed programming language that builds on JavaScript, providing better tooling at any scale.
 - [**Solidity**](https://soliditylang.org/): The programming language used to write Ethereum smart contracts.
