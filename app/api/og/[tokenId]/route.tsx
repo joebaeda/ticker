@@ -130,7 +130,7 @@ export async function GET(request: Request, { params }: { params: { tokenId: str
                                         fontSize: '2rem',
                                         width: '60%',
                                         fontFamily: 'Reguler'
-                                    }}>The Marketcap or total value of all Test Token Sepolia combined has reached a staggering {marketCap} ETH.</p>
+                                    }}>The Marketcap or total value of all {tName} combined has reached a staggering {marketCap} ETH.</p>
                                 </div>
                             </div>
                         </div>

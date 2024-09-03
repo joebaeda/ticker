@@ -9,11 +9,13 @@ export async function GET(request: Request, { params }: { params: { tokenId: str
         const provider = new ethers.JsonRpcProvider("https://rpc.sepolia.org");
         const contract = new ethers.Contract(contractAddress, TickerToken, provider)
 
+        const tokenName = await contract.name();
         const symbol = await contract.symbol();
         const priceInWei = await contract.getTokenPrice();
         const price = ethers.formatEther(priceInWei);
 
         return NextResponse.json({
+            tokenName,
             symbol,
             price,
         });

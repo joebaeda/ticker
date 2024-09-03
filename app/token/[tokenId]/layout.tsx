@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: { tokenId: string }
         const data = await response.json();
 
         const title = `The ticker is $${data.symbol} | ${data.price} ETH`;
-        const description = `Discover ${data.symbol}, a unique cryptocurrency. Stay updated with the current price and explore the recent transactions on the blockchain. Invest wisely and stay ahead with ${data.symbol}.`;
+        const description = `Discover ${data.tokenName} (${data.symbol}), a unique cryptocurrency. Stay updated with the current price and explore the recent transactions on the blockchain. Invest wisely and stay ahead with ${data.tokenName}.`;
         const imageUrl = `https://www.ticker.id/api/og/${tokenId}`;
 
         return {
