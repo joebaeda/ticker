@@ -5,6 +5,7 @@ import BuyMeCoffee from "@/components/BuyMeCoffee";
 import NoWalletDetected from "@/components/NoWalletDetected";
 import WrongNetwork from "@/components/WrongNetwork";
 import { useWallet } from "@/context/WalletContextProvider";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 async function fetchAllPosts() {
@@ -58,7 +59,7 @@ export default function Blog() {
 
     if (error) {
         return <div className="flex items-center justify-center min-h-screen">
-            <img src="/ticker-blog-loading.svg" alt="Loading..." className="w-300 h-full object-contain" />
+            <Image width={300} height={300} src="/ticker-blog-loading.svg" alt="Loading..." className="w-300 h-full object-contain" />
         </div>;
     }
 
@@ -128,7 +129,7 @@ export default function Blog() {
                             <div className="grid grid-cols sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
                                 {filteredPost.map((post) => (
                                     <a href={`/blog/${post.id}`} key={post.id} className="block bg-white rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105">
-                                        <img src={post.image} alt={post.title} className="w-full h-40 object-cover" />
+                                        <Image width={1200} height={630} src={post.image} alt={post.title} className="w-full h-40 object-cover" />
                                         <div className="p-4 text-gray-900">
                                             <small className="text-sm lg:text-md my-2">{post.date} | {post.author}</small>
                                             <h2 className="text-xl font-bold">{post.title}</h2>
@@ -152,7 +153,7 @@ export default function Blog() {
                 <footer className="bg-white min-h-80 text-gray-400 pt-4">
                     <div className="container mx-auto text-center">
                         <p className="text-sm p-6 max-w-2xl mx-auto">
-                            Investing in cryptocurrencies involves significant risk and can result in the loss of your entire investment. The value of cryptocurrencies is highly volatile and subject to unpredictable market changes. We do not provide financial, investment, or legal advice, and the content on this site is for informational purposes only. Always conduct your own research and consult with a qualified professional before making any financial decisions. We are not responsible for any losses incurred through the use of this site or its content.
+                        The value of cryptocurrencies is highly volatile and subject to unpredictable market changes. We do not provide financial, investment, or legal advice. Always conduct your own research and consult with a qualified professional before making any financial decisions. We are not responsible for any losses incurred through the use of this site or its content.
                         </p>
                         <button
                             onClick={openModal}

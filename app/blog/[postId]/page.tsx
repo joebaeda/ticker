@@ -5,6 +5,7 @@ import { useWallet } from '@/context/WalletContextProvider';
 import NoWalletDetected from '@/components/NoWalletDetected';
 import { useEffect, useState } from 'react';
 import BuyMeCoffee from '@/components/BuyMeCoffee';
+import Image from 'next/image';
 
 async function fetchPostData(postId: string) {
     const res = await fetch(`/api/blog/${postId}`);
@@ -86,13 +87,13 @@ export default function Posts({ params }: { params: { postId: string } }) {
 
     if (error) {
         return <div className="flex items-center justify-center min-h-screen">
-            <img src="/ticker-blog-loading.svg" alt="Loading..." className="w-300 h-full object-contain" />
+            <Image width={300} height={300} src="/ticker-blog-loading.svg" alt="Loading..." className="w-300 h-full object-contain" />
         </div>;
     }
 
     if (!postData) {
         return <div className="flex items-center justify-center min-h-screen">
-            <img src="/ticker-blog-loading.svg" alt="Loading..." className="w-300 h-full object-contain" />
+            <Image width={300} height={300} src="/ticker-blog-loading.svg" alt="Loading..." className="w-300 h-full object-contain" />
         </div>;
     }
 
@@ -152,7 +153,7 @@ export default function Posts({ params }: { params: { postId: string } }) {
                                 <div className="space-y-4">
                                     {relatedPosts.slice(0, 4).map((post: any) => (
                                         <a href={`/blog/${post.id}`} key={post.id} className="block bg-gray-100 hover:bg-gray-200 transition-colors rounded-lg overflow-hidden shadow-lg">
-                                            <img src={post.image} alt={post.title} className="w-full h-40 object-cover" />
+                                            <Image width={1200} height={630} src={post.image} alt={post.title} className="w-full h-40 object-cover" />
                                             <div className="p-4 text-gray-900">
                                                 <p className="text-xs lg:text-md">{post.date} | {post.author}</p>
                                                 <h4 className="text-md font-semibold">{post.title}</h4>
@@ -167,7 +168,7 @@ export default function Posts({ params }: { params: { postId: string } }) {
                             <div className="overflow-x-scroll scrollbar-hide flex space-x-4">
                                 {airdropPosts.map((post: any) => (
                                     <a href={`/blog/${post.id}`} key={post.id} className="min-w-[320px] overflow-hidden">
-                                        <img src={post.image} alt={post.title} className="w-full h-40 object-cover" />
+                                        <Image width={1200} height={630} src={post.image} alt={post.title} className="w-full h-40 object-cover" />
                                         <div className="p-4 h-40 text-gray-900 bg-white hover:bg-gray-200 transition-colors">
                                             <p className="text-sm lg:text-md">{post.date} | {post.author}</p>
                                             <h3 className="text-lg font-semibold">{post.title}</h3>
@@ -183,7 +184,7 @@ export default function Posts({ params }: { params: { postId: string } }) {
                 <footer className="bg-white min-h-80 text-gray-400 pt-4">
                     <div className="container mx-auto text-center">
                         <p className="text-sm p-6 max-w-2xl mx-auto">
-                            Investing in cryptocurrencies involves significant risk and can result in the loss of your entire investment. The value of cryptocurrencies is highly volatile and subject to unpredictable market changes. We do not provide financial, investment, or legal advice, and the content on this site is for informational purposes only. Always conduct your own research and consult with a qualified professional before making any financial decisions. We are not responsible for any losses incurred through the use of this site or its content.
+                        The value of cryptocurrencies is highly volatile and subject to unpredictable market changes. We do not provide financial, investment, or legal advice. Always conduct your own research and consult with a qualified professional before making any financial decisions. We are not responsible for any losses incurred through the use of this site or its content.
                         </p>
                         <button
                             onClick={openModal}

@@ -152,7 +152,7 @@ export default function Tokens() {
                 <footer className="bg-white min-h-80 text-gray-400 pt-4">
                     <div className="container mx-auto text-center">
                         <p className="text-sm p-6 max-w-2xl mx-auto">
-                            Investing in cryptocurrencies involves significant risk and can result in the loss of your entire investment. The value of cryptocurrencies is highly volatile and subject to unpredictable market changes. We do not provide financial, investment, or legal advice, and the content on this site is for informational purposes only. Always conduct your own research and consult with a qualified professional before making any financial decisions. We are not responsible for any losses incurred through the use of this site or its content.
+                        The value of cryptocurrencies is highly volatile and subject to unpredictable market changes. We do not provide financial, investment, or legal advice. Always conduct your own research and consult with a qualified professional before making any financial decisions. We are not responsible for any losses incurred through the use of this site or its content.
                         </p>
                         <button
                             onClick={openModal}
