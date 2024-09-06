@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import { addLiquidity } from '@/lib/token';
 import Toast from '../Toast';
@@ -15,6 +15,7 @@ const AddLiquidityForm: React.FC<AddLiquidityProps> = ({ tokenAddress, signer })
     const [ethAmount, setEthAmount] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
     const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+    const [mustOneETH, setMustOneETH] = useState<string>('');
 
     const handleAddLiquidity = async () => {
         if (signer && tokenAddress && tokenAmount && ethAmount) {
@@ -49,6 +50,12 @@ const AddLiquidityForm: React.FC<AddLiquidityProps> = ({ tokenAddress, signer })
             setToast({ message: 'Please enter valid amounts.', type: 'error' });
         }
     };
+
+    useEffect(() => {
+        if (Number(ethAmount) < 1 ) {
+            setMustOneETH("Must send minimum 1 ETH to initialize");
+        }
+    },[ethAmount])
 
     return (
         <div className="p-4 mx-2 w-full bg-white text-gray-700 rounded-t-3xl">
@@ -89,11 +96,12 @@ const AddLiquidityForm: React.FC<AddLiquidityProps> = ({ tokenAddress, signer })
             </div>
             <button
                 onClick={handleAddLiquidity}
-                disabled={loading || !isContractOwner}
+                disabled={loading || !isContractOwner || Number(ethAmount) < 1}
                 className={`w-full py-2 rounded-xl ${loading || !isContractOwner ? 'bg-gray-600' : 'bg-blue-600 hover:bg-blue-700'} text-white font-bold`}
             >
                 {loading ? 'Adding Liquidity...' : 'Add Liquidity'}
             </button>
+            <p className="pt-2 text-red-600 font-semibold">{mustOneETH}</p>
         </div>
     );
 };

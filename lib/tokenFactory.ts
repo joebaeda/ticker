@@ -22,16 +22,16 @@ export const tickerContractFactory = (signer?: ethers.Signer) => {
   return contract;
 };
 
-export const createToken = async (name: string, symbol: string, signer: ethers.Signer) => {
+export const createTicker = async (name: string, symbol: string, signer: ethers.Signer) => {
   const contract = tickerContractFactory(signer);
-  const tx = await contract.createLotteryGamesToken(name, symbol);
+  const tx = await contract.createToken(name, symbol);
   await tx.wait();
   return tx;
 };
 
 export const listTokens = async () => {
   const contract = tickerContractFactory();
-  const tokens = await contract.listOfAllLotteryGamesToken();
+  const tokens = await contract.listOfAllERC20Token();
   return tokens;
 };
 

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from 'react';
-import { createToken } from '@/lib/tokenFactory';
+import { createTicker } from '@/lib/tokenFactory';
 import { useWallet } from '@/context/WalletContextProvider';
 import Toast from '@/components/Toast';
 import WrongNetwork from '@/components/WrongNetwork';
@@ -36,7 +36,7 @@ export default function Home() {
     setLoading(true);
 
     try {
-      await createToken(name, symbol, signer);
+      await createTicker(name, symbol, signer);
 
       // Show success toast
       setToast({ message: 'Token created!', type: 'success' });
